@@ -9,7 +9,7 @@ const HOMEITEMS = [
   },
   {
     title: '강좌 시간표',
-    url_path: '/lecture',
+    url_path: '/lectures',
   },
   {
     title: '내가 쓴 글',

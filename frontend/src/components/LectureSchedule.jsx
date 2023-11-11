@@ -1,10 +1,11 @@
 import "../components/LectureSchedule.css";
+import styled from 'styled-components';
 
 export default function LectureSchedule() {
   return (
     <div className="table_blue01" id="ovbox_01" style={{ width: "100%", overflowY: "hidden", overflowX: "auto" }}>
       <table style={{ minWidth: "850px", width: "100%" }}>
-        <caption>복지관</caption>
+        <LectureHeader>복지관</LectureHeader>
         <colgroup>
           <col width="*" />
           <col width="*" />
@@ -271,3 +272,9 @@ export default function LectureSchedule() {
     </div>
   );
 }
+
+const LectureHeader = styled.caption`
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px;
+`;

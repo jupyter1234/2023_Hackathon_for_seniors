@@ -1,5 +1,7 @@
 import Navbar from "./components/Navbar"
 import MainPage from "./pages/MainPage"
+import MealPage from "./pages/Main/MealPage"
+import LecturePage from "./pages/Main/LecturePage"
 import MapPage from "./pages/MapPage"
 import RegisterPage from "./pages/RegisterPage"
 import CommunityPage from "./pages/CommunityPage"
@@ -15,7 +17,11 @@ export default function App() {
       <Navbar />
       {/* authenticated를 이용해서 path구성 */}
       <Routes>
+        {/* home */}
         <Route path="/" element={<MainPage></MainPage>} />
+        <Route path="/meals" element={<MealPage></MealPage>} />
+        <Route path="/lectures" element={<LecturePage></LecturePage>} />
+        {/* ------------------------------------------- */}
         <Route path="/map" element={<MapPage></MapPage>} />
         <Route path="/register" element={<RegisterPage></RegisterPage>} />
         <Route path="/community" element={<CommunityPage></CommunityPage>} />
