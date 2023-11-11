@@ -1,76 +1,101 @@
-import './Community.css';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-
-function Title(props){
+function Title(props) {
   return (
-    <div style={{margin: '0 auto', width: '90%', fontSize:'5vw', fontWeight:'bold'}}>
+    <div style={{ margin: '0 0 20px 0', width: '90%', fontSize: '5vw', fontWeight: 'bold' }}>
       <h2>{props.children}</h2>
     </div>
   );
 }
 
-function Content(props){
+function Content(props) {
   return (
-    <div style={{margin: '0 auto', width: '70%', fontSize:'2.5vw'}}>
+    <div>
       <h1>{props.children}</h1>
     </div>
   );
 }
 
+CommunityItem.propTypes = {
+  to: PropTypes.object.isRequired, // adjust the type accordingly
+  imgSrc: PropTypes.string.isRequired,
+  altText: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
+
+
+function CommunityItem({ to, imgSrc, altText, content }) {
+  return (
+    <Card>
+      <Link to={to} style={{ textDecoration: 'none' }}>
+        <img className="imgSize" src={imgSrc} alt={altText} />
+        <Content>{content}</Content>
+      </Link>
+    </Card>
+  );
+}
 
 export default function CommunityPage() {
   return (
-    <div>
-      <br/>
-      <Title>주변 사람들과 함께 </Title>
-      <Title> 하고 싶은 취미 생활을 </Title>
-      <Title> 골라보세요</Title>
-      
-      <div className='table-container'>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <Link to={{pathname:'/community/badook' ,state:{paramName: '바둑'}}} style={{textDecoration:'none'}}>
-                  <div style={{margin: '0 auto', width: '70%'}}>
-                    <img className="imgSize" src="/img/go.png" alt="바둑"/>
-                    <Content>바둑</Content>
-                  </div>
-                </Link> 
-                
-                
-              </td>
-              <td>
-                <Link to={{pathname:'/community/walking' ,state:'산책'}} style={{textDecoration:'none'}}>
-                  <div style={{margin: '0 auto', width: '70%'}}>
-                    <img className="imgSize" src="/img/iris.png" alt='산책'/>
-                    <Content>산책</Content>
-                  </div>
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Link to={{pathname:'/community/gateball' ,state:'게이트볼'}} style={{textDecoration:'none'}}>
-                  <div style={{margin: '0 auto', width: '70%'}}>
-                    <img className="imgSize" src="/img/gateball.png" alt='게이트볼'/>
-                    <Content>게이트볼</Content>
-                  </div>
-                </Link>
-              </td>
-              <td>
-                <Link to={{pathname:'/community/etc' ,state:'기타활동'}} style={{textDecoration:'none'}}>
-                  <div style={{margin: '0 auto', width: '70%'}}>
-                    <img className="imgSize" src="/img/people.png" alt='기타활동'/>
-                    <Content>기타활동</Content>
-                  </div>
-                </Link>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <CommunityContainer>
+      <Title>주변 사람들과 함께 <br /> 하고 싶은 취미 생활을 <br />골라보세요</Title>
+      <CardContainer>
+        <CommunityItem to={{ pathname: '/community/badook', state: { paramName: '바둑' } }} imgSrc="/img/go.png" altText="바둑" content="바둑" />
+        <CommunityItem to={{ pathname: '/community/walking', state: '산책' }} imgSrc="/img/iris.png" altText="산책" content="산책" />
+        <CommunityItem to={{ pathname: '/community/gateball', state: '게이트볼' }} imgSrc="/img/gateball.png" altText="게이트볼" content="게이트볼" />
+        <CommunityItem to={{ pathname: '/community/etc', state: '기타활동' }} imgSrc="/img/people.png" altText="기타활동" content="기타활동" />
+      </CardContainer>
+    </CommunityContainer>
   );
 }
+
+const CommunityContainer = styled.div`
+  overflow: scroll;
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const CardContainer = styled.div`
+  width: 100%;
+  height: 60%;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
+const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 10px;
+  width: 160px;
+  height: 200px;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+`;

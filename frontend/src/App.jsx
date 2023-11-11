@@ -41,7 +41,7 @@ export default function App() {
         <Route path="/community/walking" element={<Community_Walking></Community_Walking>}/>
         <Route path="/community/gateball" element={<Community_Gateball></Community_Gateball>}/>
         <Route path="/community/etc" element={<Community_Etc></Community_Etc>}/>
-
+        {/* ------------------------------------------- */}
         <Route path="/board/badook" element={<Board_Badook></Board_Badook>}/>
         <Route path="/board/walking" element={<Board_Walking></Board_Walking>}/>
         <Route path="/board/gateball" element={<Board_Gateball></Board_Gateball>}/>
