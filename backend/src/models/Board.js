@@ -6,11 +6,6 @@
 
 //BoardSChema.js
 
-<<<<<<< HEAD
-const mongoose = require("mongoose");
-const { User } = require("./User");
-
-=======
 const { mongoose, Schema } = require("mongoose");
 const User = require("./User");
 
@@ -21,7 +16,6 @@ const getCurrentTime = () => {
   return m.format("YYYY-MM-DD HH:mm:ss");
 };
 
->>>>>>> 09e9228 (feat: 보드 CRUD)
 const BoardSchema = mongoose.Schema({
   title: {
     type: String,
@@ -34,21 +28,6 @@ const BoardSchema = mongoose.Schema({
     trim: true,
   },
   created_date: {
-<<<<<<< HEAD
-    type: Date,
-    required: true,
-    trim: true,
-  },
-  // user_id: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "User",
-  //   required: true,
-  // },
-});
-
-const Board = mongoose.model("Board", BoardSchema);
-module.exports = Board;
-=======
     type: String,
     required: true,
     trim: true,
@@ -73,4 +52,3 @@ BoardSchema.virtual("comments", {
 
 const Board = mongoose.model("Board", BoardSchema);
 module.exports = Board;
->>>>>>> 09e9228 (feat: 보드 CRUD)

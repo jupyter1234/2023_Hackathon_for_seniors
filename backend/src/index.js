@@ -21,10 +21,7 @@ app.use(cors());
 app.use(express.json());
 
 // DB 연결
-mongoose.connect(
-  "mongodb+srv://adorableco:Fgg1mkClL6J0dsaW@hackerton2023.kcsaars.mongodb.net/?retryWrites=true&w=majority",
-  { dbName: "Hackerton2023_Back" },
-);
+mongoose.connect(process.env.MONGO_URI, { dbName: "Hackerton2023_Back" });
 
 // 커넥션 관리 이벤트 :: 연결 확인 log
 mongoose.connection.on("connected", () => {
@@ -62,5 +59,4 @@ app.get("/", (req, res) => {
 app.use("/user", require("./routes/user"));
 app.use("/board", require("./routes/board"));
 app.use("/comments", comment);
-s;
 app.listen(3001);
