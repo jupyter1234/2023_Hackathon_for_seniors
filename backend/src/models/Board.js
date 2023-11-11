@@ -4,34 +4,28 @@
  * @format
  */
 
-//UserSChema.js
+//BoardSChema.js
 
-// eslint-disable-next-line no-undef
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const { User } = require("./User");
 
-const BoardSchema = new Schema(
-  {
-    contents: {
-      type: mongoose.Schema.Types.String,
-      required: true,
-      trim: true,
-    },
-    created_date: {
-      type: mongoose.Schema.Types.Date,
-      required: true,
-      trim: true,
-    },
-    modified_date: { type: Schema.Types.Date, required: true },
-    email: { type: mongoose.Schema.Types.String },
-    user_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'USER',
-      required: true,
-    },
+const BoardSchema = mongoose.Schema({
+  contents: {
+    type: String,
+    required: true,
+    trim: true,
   },
-  { timestamps: true },
-);
+  created_date: {
+    type: Date,
+    required: true,
+    trim: true,
+  },
+  // user_id: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "User",
+  //   required: true,
+  // },
+});
 
-const Board = mongoose.model('Board', BoardSchema);
+const Board = mongoose.model("Board", BoardSchema);
 module.exports = Board;

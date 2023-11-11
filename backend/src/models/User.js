@@ -1,20 +1,11 @@
-/**
- * eslint-disable no-undef
- *
- * @format
- */
-
-// UserSchema.js
-
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+//const Schema = mongoose.Schema;
 
-const UserSchema = new Schema(
+const UserSchema = mongoose.Schema(
   {
     name: { 
-      type: mongoose.Schema.Types.String, 
+      type: String, 
       required: true, 
-      trim: true 
     },
     nickname: {
       type: String,
@@ -51,6 +42,6 @@ const UserSchema = new Schema(
   { timestamps: true },
 );
 
-const User = mongoose.model('user', UserSchema);
+const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
