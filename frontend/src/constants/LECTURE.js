@@ -1,5 +1,10 @@
 const PROGRAMS = [
   {
+    name: '단전 호흡 수업',
+    description: '몸에 의식을 집중하므로 순수한 의식의 작용인 명상과 다른 수업입니다.',
+    image: 'https://www.suseonjae.org/main/themes/org2019/images/meditation/meditation06_04.jpg',
+  },
+  {
     name: '요가 수업',
     description: '신체의 유연성을 키우고 건강을 증진하는 요가 수업입니다.',
     image: 'https://i.namu.wiki/i/6lLAmrqvP9_PoP6MnPV6Yzu_pN3CpnKRMR3YoDMn06zpZXS4DNiwwhX_wZ4bj6LpE0CoSa_MHXfNoQs0dXiWYWvshmQCFOO3R4ZOpgwFBKeU3ovmJ9MOsJhTYpN5xn493gT9KpYVlKXYXbDvXsQGXA.webp',
@@ -18,6 +23,12 @@ const PROGRAMS = [
     name: '일본어 회화 수업',
     description: '일본어로 간단한 대화를 할 수 있도록 도와주는 수업입니다.',
     image: 'https://cdn.welfarenews.net/news/photo/200706/16475b.jpg',
+  },
+  // ------------------------------------------------------------------ //
+  {
+    name: '단전 호흡 수업',
+    description: '몸에 의식을 집중하므로 순수한 의식의 작용인 명상과 다른 수업입니다.',
+    image: 'https://www.suseonjae.org/main/themes/org2019/images/meditation/meditation06_04.jpg',
   },
   {
     name: '요가 수업',
