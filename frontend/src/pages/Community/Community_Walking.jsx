@@ -10,7 +10,7 @@ function Header(props){
 
 function ImgContext(props){
     return(
-        <Link to='/community/post' style={{textDecoration:'none'}}>
+        <Link to='/board/walking' style={{textDecoration:'none'}}>
             <div style={{display:'flex', alignItems:'center'}}>
                 <img className="imgSize" src="/img/park.jpg" style={{display:'inline-block', width:"100px",height:"100px",padding:"10px"}} alt="공원사진"/>
                 <div>
@@ -31,7 +31,7 @@ function ImgContext(props){
 
 function Context(props){
     return(
-        <Link to='/community/post' style={{textDecoration:'none'}}>
+        <Link to='/board/walking' style={{textDecoration:'none'}}>
             <div>
                 <br/>
                     <h2>{props.title}</h2>
@@ -68,7 +68,7 @@ export default function Community_Board(props) {
             <div style={{display:'flex',justifyContent:'space-between'}}>
                 <div>
                     <p style={{fontWeight:'bold',display:'inline-block',textAlign:'left',fontSize:'20px',marginRight:'10px'}}>카테고리</p>
-                    <p style={{display:'inline-block',fontSize:'20px'}}>바둑</p>
+                    <p style={{display:'inline-block',fontSize:'20px'}}>산책</p>
                 </div>
                 <button style={buttonStyle}>글쓰기</button>
             </div>
@@ -77,15 +77,15 @@ export default function Community_Board(props) {
             <hr/>
 
             <div style={{overflowY: 'scroll',height:'400px',border:'1px solid #ccc', padding:"10px"}}>
-                <ImgContext title="매주 월요일마다 바둑..." content="쉼터공원에서 아침 9시에 바둑 같이..." writer="이세돌"/>
+                <ImgContext title="매주 월요일마다 산책..." content="쉼터공원에서 아침 9시에 산책 같이..." writer="이봉주"/>
                 <hr/>
-                <Context title="매주 월요일마다 바둑..." content="쉼터공원에서 아침 9시에 바둑 같이..." writer="이세돌"/>
+                <Context title="매주 월요일마다 산책..." content="쉼터공원에서 아침 9시에 산책 같이..." writer="김봉주"/>
                 <hr/>
-                <ImgContext title="매주 목요일마다 바둑..." content="쉼터공원에서 아침 9시에 바둑 같이..." writer="이세돌"/>
+                <ImgContext title="매주 목요일마다 산책..." content="쉼터공원에서 아침 9시에 산책 같이..." writer="박봉주"/>
                 <hr/>
-                <Context title="매주 월요일마다 바둑..." content="쉼터공원에서 아침 9시에 바둑 같이..." writer="이세돌"/>
+                <Context title="매주 월요일마다 산책..." content="쉼터공원에서 아침 9시에 산책 같이..." writer="최봉주"/>
                 <hr/>
-                <ImgContext title="매주 금요일마다 바둑..." content="쉼터공원에서 아침 9시에 바둑 같이..." writer="이세돌"/>
+                <ImgContext title="매주 금요일마다 산책..." content="쉼터공원에서 아침 9시에 산책 같이..." writer="이세돌"/>
             </div>
         </div>
     );

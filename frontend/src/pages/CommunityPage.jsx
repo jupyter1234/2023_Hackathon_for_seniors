@@ -32,7 +32,7 @@ export default function CommunityPage() {
           <tbody>
             <tr>
               <td>
-                <Link to={{pathname:'/community/board' ,state:{paramName: '바둑'}}} style={{textDecoration:'none'}}>
+                <Link to={{pathname:'/community/badook' ,state:{paramName: '바둑'}}} style={{textDecoration:'none'}}>
                   <div style={{margin: '0 auto', width: '70%'}}>
                     <img className="imgSize" src="/img/go.png" alt="바둑"/>
                     <Content>바둑</Content>
@@ -42,7 +42,7 @@ export default function CommunityPage() {
                 
               </td>
               <td>
-                <Link to={{pathname:'/community/board' ,state:'산책'}} style={{textDecoration:'none'}}>
+                <Link to={{pathname:'/community/walking' ,state:'산책'}} style={{textDecoration:'none'}}>
                   <div style={{margin: '0 auto', width: '70%'}}>
                     <img className="imgSize" src="/img/iris.png" alt='산책'/>
                     <Content>산책</Content>
@@ -52,7 +52,7 @@ export default function CommunityPage() {
             </tr>
             <tr>
               <td>
-                <Link to={{pathname:'/community/board' ,state:'게이트볼'}} style={{textDecoration:'none'}}>
+                <Link to={{pathname:'/community/gateball' ,state:'게이트볼'}} style={{textDecoration:'none'}}>
                   <div style={{margin: '0 auto', width: '70%'}}>
                     <img className="imgSize" src="/img/gateball.png" alt='게이트볼'/>
                     <Content>게이트볼</Content>
@@ -60,7 +60,7 @@ export default function CommunityPage() {
                 </Link>
               </td>
               <td>
-                <Link to={{pathname:'/community/board' ,state:'기타활동'}} style={{textDecoration:'none'}}>
+                <Link to={{pathname:'/community/etc' ,state:'기타활동'}} style={{textDecoration:'none'}}>
                   <div style={{margin: '0 auto', width: '70%'}}>
                     <img className="imgSize" src="/img/people.png" alt='기타활동'/>
                     <Content>기타활동</Content>
