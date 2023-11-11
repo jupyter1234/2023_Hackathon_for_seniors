@@ -1,12 +1,28 @@
-import MealSchedule from "../components/MealSchedule"
-import LectureSchedule from "../components/LectureSchedule"
+import ProgramCard from '../components/ProgramCard';
+import PROGRAMS from '../constants/TEMPDATA';
+import styled from 'styled-components';
 
 export default function MainPage() {
   return (
-    <div>
+    <MainPageContainer>
       <h1>Main Page</h1>
-      <LectureSchedule/>
-      <MealSchedule/>
-    </div>
-  )
+      <ProgramCardsContainer>
+        {PROGRAMS.map((program, idx) => (
+          <ProgramCard key={idx} program={program} />
+        ))}
+      </ProgramCardsContainer>
+    </MainPageContainer>
+  );
 }
+
+const MainPageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
+`;
+
+const ProgramCardsContainer = styled.div`
+  overflow: scroll;
+`;

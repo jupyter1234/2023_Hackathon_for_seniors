@@ -7,7 +7,6 @@ import LoginPage from "./pages/LoginPage"
 import SignUpPage from "./pages/SignUpPage"
 
 import { Routes, Route } from "react-router-dom"
-import KakaoMap from "./components/KakaoMap"
 
 export default function App() {
   return (
