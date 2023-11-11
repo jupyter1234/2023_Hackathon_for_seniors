@@ -8,8 +8,8 @@ const router = Router();
 
 router.get('/', async function (req, res) {
   try {
-    const users = await User.find({ Gender: 'F' }); // 모든 사용자를 검색
-    res.json(users); // JSON 형식으로 응답
+    const users = await User.find({}); // 모든 사용자를 검색
+    res.json(JSON.parse(users)); // JSON 형식으로 응답
   } catch (error) {
     res.status(500).json({ message: error.message }); // 에러 발생 시 500 Internal Server Error 응답
   }
@@ -24,7 +24,7 @@ router.get('/:_id', function (req, res) {
   User.findOne({ Gender: req.params._id }, function (err, user) {
     if (err) return res.status(500).json({ error: err });
     if (!user) return res.status(404).json({ error: 'user not found' });
-    res.json(user);
+    res.json(JSON.parse(user));
   });
 });
 
