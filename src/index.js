@@ -50,8 +50,17 @@ app.get("/welfare", async function (req, res) {
 //   console.log("더미데이터 생성 성공")
 // )
 
-app.get("/", (req, res) => {
-  res.send("OK");
+// 프론트 연결 테스트용 !!!
+const boardRouter = require("./models/Board");
+app.get("/", async (req, res) => {
+  const board = await boardRouter
+    .find({
+      category: req.params.category,
+    })
+    .select("title, user_id, contents, created_date category")
+    .populate({ path: "user_id", select: "nickname" })
+    .then(console.log("sent"));
+  res.json(board);
 });
 
 // 라우터 이동
