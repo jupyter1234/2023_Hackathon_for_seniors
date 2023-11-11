@@ -59,4 +59,4 @@ app.get("/", (req, res) => {
 app.use("/user", require("./routes/user"));
 app.use("/board", require("./routes/board"));
 app.use("/comments", comment);
-app.listen(3001);
+app.listen(process.env.PORT);
