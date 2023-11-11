@@ -1,6 +1,9 @@
 import Navbar from "./components/Navbar"
 import MainPage from "./pages/MainPage"
+import MealPage from "./pages/Main/MealPage"
+import LecturePage from "./pages/Main/LecturePage"
 import MapPage from "./pages/MapPage"
+import ProgramPage from "./pages/PrgramPage"
 import RegisterPage from "./pages/RegisterPage"
 import CommunityPage from "./pages/CommunityPage"
 import LoginPage from "./pages/LoginPage"
@@ -10,7 +13,6 @@ import Community_Post from "./pages/Community_Post"
 
 
 import { Routes, Route } from "react-router-dom"
-import KakaoMap from "./components/KakaoMap"
 
 export default function App() {
   return (
@@ -19,9 +21,15 @@ export default function App() {
       <Navbar />
       {/* authenticated를 이용해서 path구성 */}
       <Routes>
+        {/* home */}
         <Route path="/" element={<MainPage></MainPage>} />
+        <Route path="/meals" element={<MealPage></MealPage>} />
+        <Route path="/lectures" element={<LecturePage></LecturePage>} />
+        {/* ------------------------------------------- */}
         <Route path="/map" element={<MapPage></MapPage>} />
+        <Route path="/programs" element={<ProgramPage></ProgramPage>} />
         <Route path="/register" element={<RegisterPage></RegisterPage>} />
+        {/* ------------------------------------------- */}
         <Route path="/community" element={<CommunityPage></CommunityPage>} />
         <Route path="/community/board" element={<Community_Board></Community_Board>} />
         <Route path="/community/post" element={<Community_Post></Community_Post>}/>
