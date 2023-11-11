@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { useSetRecoilState } from "recoil";
+import { ProgramLocation } from "../store/Info";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import MAPPIN from "../constants/MAP";
 import { useNavigate } from "react-router-dom";
 
 export default function KakaoMap() {
+  const setSelectedLocation = useSetRecoilState(ProgramLocation);
   const [geolocation, setGeolocation] = useState({
     lat: null,
     lng: null,
@@ -72,6 +75,7 @@ export default function KakaoMap() {
       {MAPPIN.map((pin, index) => (
         <MapMarker key={index} position={{ lat: pin.coordinates[1], lng: pin.coordinates[0] }}       
           onClick={() => {
+            setSelectedLocation(pin.name);
             navigate("/programs");
           }}/>
       ))}

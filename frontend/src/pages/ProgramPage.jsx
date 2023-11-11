@@ -1,11 +1,15 @@
+import { useRecoilValue } from "recoil";
+import { ProgramLocation } from "../store/Info";
 import ProgramCard from "../components/ProgramCard";
 import PROGRAMS from "../constants/LECTURE";
 import styled from "styled-components";
 
 export default function ProgramPage() { 
+  const location = useRecoilValue(ProgramLocation);
+
   return (
     <ProgramList>
-      <ProgramListTitle> 00복지관에서 <br />모집중인 프로그램 </ProgramListTitle>
+      <ProgramListTitle> {location}에서 <br />모집중인 프로그램 </ProgramListTitle>
       <ProgramCardsContainer>
         {PROGRAMS.map((program, idx) => (
           <ProgramCard key={idx} program={program} />
