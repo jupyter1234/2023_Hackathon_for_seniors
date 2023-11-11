@@ -47,8 +47,8 @@ export default function KakaoMap() {
     <Map
       id="map"
       center={{
-        lat: geolocation.lat || 37.566826,
-        lng: geolocation.lng || 126.9786567,
+        lat: geolocation.lat || 35.8881703,
+        lng: geolocation.lng || 128.6113467,
       }}
       style={{
         width: "100%",

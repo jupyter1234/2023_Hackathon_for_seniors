@@ -14,7 +14,7 @@ function Navbar() {
 
 	return (
 		<header>
-			<h3>LOGO</h3>
+			<h2>어데고</h2>
 			<nav ref={navRef}>
 				<Link to="/" onClick={showNavbar}>홈</Link>
 				<Link to="/map" onClick={showNavbar}>지도</Link>
