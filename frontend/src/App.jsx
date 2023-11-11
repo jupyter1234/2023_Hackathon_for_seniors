@@ -3,7 +3,7 @@ import MainPage from "./pages/MainPage"
 import MealPage from "./pages/Main/MealPage"
 import LecturePage from "./pages/Main/LecturePage"
 import MapPage from "./pages/MapPage"
-import ProgramPage from "./pages/PrgramPage"
+import ProgramPage from "./pages/ProgramPage"
 import RegisterPage from "./pages/RegisterPage"
 import CommunityPage from "./pages/CommunityPage"
 import LoginPage from "./pages/LoginPage"
@@ -18,10 +18,11 @@ import Board_Gateball from "./pages/Board/Community_Gateball"
 import Board_Etc from "./pages/Board/Community_Etc"
 
 import { Routes, Route } from "react-router-dom"
+import { RecoilRoot } from "recoil"
 
 export default function App() {
   return (
-    <div>
+    <RecoilRoot>
       {/* authenticated파라미터 넘겨서 네브바 구성 */}
       <Navbar />
       {/* authenticated를 이용해서 path구성 */}
@@ -49,6 +50,6 @@ export default function App() {
         <Route path="/login" element={<LoginPage></LoginPage>} />
         <Route path="/signup" element={<SignUpPage></SignUpPage>} />
       </Routes>
-    </div>
+    </RecoilRoot>
   )
 }
