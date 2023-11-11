@@ -1,7 +1,7 @@
 const HOMEITEMS = [
   {
     title: '함께해요 게시판',
-    url_path: '/community',
+    url_path: '/community/board',
   },
   {
     title: '식단표',
