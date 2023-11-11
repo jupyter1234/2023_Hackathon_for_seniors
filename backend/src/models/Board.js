@@ -23,6 +23,11 @@ const getCurrentTime = () => {
 
 >>>>>>> 09e9228 (feat: 보드 CRUD)
 const BoardSchema = mongoose.Schema({
+  title: {
+    type: String,
+    require: true,
+    trim: true,
+  },
   contents: {
     type: String,
     required: true,
@@ -52,6 +57,10 @@ module.exports = Board;
   user_id: {
     type: Schema.Types.ObjectId,
     ref: "User",
+    required: true,
+  },
+  category: {
+    type: String,
     required: true,
   },
 });

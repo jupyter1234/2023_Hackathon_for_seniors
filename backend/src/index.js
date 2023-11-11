@@ -4,9 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
-require("dotenv").config({
-  path: ".env",
-});
+require("dotenv").config();
 const cors = require("cors");
 
 // 라우터 추가
@@ -23,7 +21,10 @@ app.use(cors());
 app.use(express.json());
 
 // DB 연결
-mongoose.connect(process.env.MONGO_URI, { dbName: "Hackerton2023_Back" });
+mongoose.connect(
+  "mongodb+srv://adorableco:Fgg1mkClL6J0dsaW@hackerton2023.kcsaars.mongodb.net/?retryWrites=true&w=majority",
+  { dbName: "Hackerton2023_Back" },
+);
 
 // 커넥션 관리 이벤트 :: 연결 확인 log
 mongoose.connection.on("connected", () => {
