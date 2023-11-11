@@ -1,3 +1,6 @@
+import { useSetRecoilState } from "recoil";
+import { ProgramInfo } from "../store/Info";
+import { useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -10,8 +13,16 @@ ProgramCard.propTypes = {
 };
 
 export default function ProgramCard({ program }) {
+  const setProgramInfo = useSetRecoilState(ProgramInfo);
+  const navigate = useNavigate();
+
   return (
-    <CardContainer>
+    <CardContainer  
+      onClick={() => {
+        setProgramInfo(program);
+        navigate("/register");
+      }}
+    >
       <ImageContainer>
         <img src={program.image} alt={program.name} />
       </ImageContainer>
@@ -22,6 +33,7 @@ export default function ProgramCard({ program }) {
     </CardContainer>
   );
 }
+
 
 const CardContainer = styled.div`
   position: relative;
