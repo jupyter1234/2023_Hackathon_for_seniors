@@ -11,15 +11,46 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
-    Name: { type: mongoose.Schema.Types.String, required: true, trim: true },
-    Bdate: { type: mongoose.Schema.Types.Date, required: true, trim: true },
-    Gender: { type: mongoose.Schema.Types.String, required: true }, // 'require'가 아닌 'required'
-    Email: { type: mongoose.Schema.Types.String },
-    Phone_number: { type: mongoose.Schema.Types.String, required: true },
+    name: { 
+      type: mongoose.Schema.Types.String, 
+      required: true, 
+      trim: true 
+    },
+    nickname: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    bdate: 
+    { 
+      type: mongoose.Schema.Types.Date, 
+      required: true, 
+      trim: true 
+    },
+    gender: 
+    { 
+      type: mongoose.Schema.Types.String, 
+      required: true 
+    }, // 'require'가 아닌 'required'
+    phone_number: 
+    { 
+      type: mongoose.Schema.Types.String, 
+      required: true 
+    },
+    user_ID: 
+    {
+      type: String,
+      required: true
+    },
+    password:
+    {
+      type: String,
+      required: true
+    }
   },
   { timestamps: true },
 );
 
-var User = mongoose.model('User', UserSchema, { collectionName: 'USER' });
+const User = mongoose.model('user', UserSchema);
 
-module.exports = { User };
+module.exports = User;
