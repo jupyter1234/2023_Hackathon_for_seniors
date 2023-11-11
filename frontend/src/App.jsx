@@ -3,6 +3,7 @@ import MainPage from "./pages/MainPage"
 import MealPage from "./pages/Main/MealPage"
 import LecturePage from "./pages/Main/LecturePage"
 import MapPage from "./pages/MapPage"
+import ProgramPage from "./pages/PrgramPage"
 import RegisterPage from "./pages/RegisterPage"
 import CommunityPage from "./pages/CommunityPage"
 import LoginPage from "./pages/LoginPage"
@@ -23,7 +24,9 @@ export default function App() {
         <Route path="/lectures" element={<LecturePage></LecturePage>} />
         {/* ------------------------------------------- */}
         <Route path="/map" element={<MapPage></MapPage>} />
+        <Route path="/programs" element={<ProgramPage></ProgramPage>} />
         <Route path="/register" element={<RegisterPage></RegisterPage>} />
+        {/* ------------------------------------------- */}
         <Route path="/community" element={<CommunityPage></CommunityPage>} />
         <Route path="/login" element={<LoginPage></LoginPage>} />
         <Route path="/signup" element={<SignUpPage></SignUpPage>} />

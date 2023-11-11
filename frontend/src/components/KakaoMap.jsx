@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
-import MAPPIN from "../constants/MAP"; // Replace 'yourFilePath' with the actual path to your data file
+import MAPPIN from "../constants/MAP";
+import { useNavigate } from "react-router-dom";
 
 export default function KakaoMap() {
   const [geolocation, setGeolocation] = useState({
     lat: null,
     lng: null,
   });
+  const navigate = useNavigate();
 
   function getLocation() {
     if (navigator.geolocation) {
@@ -68,7 +70,10 @@ export default function KakaoMap() {
           }}
       />}
       {MAPPIN.map((pin, index) => (
-        <MapMarker key={index} position={{ lat: pin.coordinates[1], lng: pin.coordinates[0] }} clickable={true}/>
+        <MapMarker key={index} position={{ lat: pin.coordinates[1], lng: pin.coordinates[0] }}       
+          onClick={() => {
+            navigate("/programs");
+          }}/>
       ))}
     </Map>
   );
