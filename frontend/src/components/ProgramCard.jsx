@@ -24,13 +24,14 @@ export default function ProgramCard({ program }) {
 }
 
 const CardContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   margin: 10px;
-  width: 200px;
+  width: 160px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
 
@@ -43,20 +44,20 @@ const ImageContainer = styled.div`
   img {
     object-fit: cover;
     width: 100%;
-    height: 150px;
+    height: 100px;
     border-bottom: 1px solid #ddd;
   }
 `;
 
 const InfoContainer = styled.div`
   position: relative;
-  padding: 15px;
+  padding: 12px;
 `;
 
 const ProgramName = styled.div`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 `;
 
 const ProgramDescription = styled.div`
