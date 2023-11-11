@@ -6,7 +6,7 @@ const PROGRAMS = [
   },
   {
     name: '댄스 수업',
-    description: '유쾌한 음악과 함께 몸을 움직여보세요. 다양한 춤 스타일을 배울 수 있습니다.',
+    description: '유쾌한 음악과 함께 몸을 움직여보세요. 춤 스타일을 배울 수 있습니다.',
     image: "http://health.chosun.com/site/data/img_dir/2013/03/12/2013031201370_0.jpg"
   },
   {
@@ -26,7 +26,7 @@ const PROGRAMS = [
   },
   {
     name: '댄스 수업',
-    description: '유쾌한 음악과 함께 몸을 움직여보세요. 다양한 춤 스타일을 배울 수 있습니다.',
+    description: '유쾌한 음악과 함께 몸을 움직여보세요. 춤 스타일을 배울 수 있습니다.',
     image: "http://health.chosun.com/site/data/img_dir/2013/03/12/2013031201370_0.jpg"
   },
   {
