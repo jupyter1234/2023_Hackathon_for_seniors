@@ -18,7 +18,6 @@ function Navbar() {
 			<nav ref={navRef}>
 				<Link to="/" onClick={showNavbar}>홈</Link>
 				<Link to="/map" onClick={showNavbar}>지도</Link>
-				<Link to="/register" onClick={showNavbar}>등록</Link>
 				<Link to="/community" onClick={showNavbar}>커뮤니티</Link>
 				<Link to="/login" onClick={showNavbar}>로그인</Link>
 				<button
