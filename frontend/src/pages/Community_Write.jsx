@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { useState } from "react";
 import BackButton from "../components/BackButton";
+import axios, { AxiosHeaders } from "axios";
 
 export default function Community_Write() {
   const [title, setTitle] = useState('');
@@ -16,8 +17,18 @@ export default function Community_Write() {
   };
 
   const handleSubmit = () => {
-    console.log("Title:", title);
-    console.log("Content:", content);
+    const dataToSend = {
+      title: title,
+      content: content,
+    };
+
+    axios.post('https://port-0-for-seniors-service-7lk2blotylb1l.sel5.cloudtype.app/board/write',dataToSend)
+      .then(response => {
+        console.log('Data sent successfully',response.data);
+      })
+      .catch(error => {
+        console.error('Error sending data to the server: ',error);
+      });
   };
 
   return (
