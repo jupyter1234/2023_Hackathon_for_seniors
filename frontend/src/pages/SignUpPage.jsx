@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpPage() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     nickname: "",
@@ -25,6 +27,7 @@ export default function SignUpPage() {
       const response = await axios.post("https://port-0-for-seniors-service-7lk2blotylb1l.sel5.cloudtype.app/user/register", formData);
       console.log(response);
       console.log("register success", response);
+      navigate("/login");
     } catch (error) {
       console.error("Error during registration:", error);
     }
@@ -97,7 +100,7 @@ export default function SignUpPage() {
             value={formData.password}
           />
         </FormGroup>
-        <SubmitButton type="submit">Sign Up</SubmitButton>
+        <SubmitButton type="submit" >Sign Up</SubmitButton>
       </SignUpForm>
     </SignUpWrapper>
   );

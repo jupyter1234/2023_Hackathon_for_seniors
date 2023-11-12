@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { UserInfo, IsLogin } from "../store/Info";
 import styled from 'styled-components';
 import axios from 'axios';
 
 export default function LoginPage() {
   const [user_ID, setUserID] = useState('');
   const [password, setPasssword] = useState('');
+  const setUserInfo = useSetRecoilState(UserInfo);
+  const setIsLogin = useSetRecoilState(IsLogin);
+  const navigate = useNavigate();
 
   const onChangeID = (e) => {
     const {
@@ -28,8 +33,9 @@ export default function LoginPage() {
         user_ID: user_ID,
         password: password
       });
-  
-      console.log(res.data); // Access response data, not res.body
+      setUserInfo(res.data);
+      setIsLogin(true);
+      navigate('/');
     } catch (error) {
       console.error(error.response.data); // Log the error response data
     }
