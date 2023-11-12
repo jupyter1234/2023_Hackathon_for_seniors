@@ -58,11 +58,19 @@ router.get("/:board_id", async function (req, res) {
 // CREATE Board
 router.post("/", async function (req, res) {
   const board = new Board();
+  board.title = req.body.title;
   board.contents = req.body.contents;
   board.user_id = req.body.user_id;
   board.category = req.body.category;
 
-  await board.save().then(res.json({ result: "Board created" }));
+  board.save().then((error, savedBoard) => {
+    if (error) {
+      console.error("Error saving board:", error);
+    } else {
+      console.log("Board saved successfully:", savedBoard);
+      // 여기서 savedBoard는 저장된 후의 사용자 객체를 나타냅니다.
+    }
+  });
 });
 
 // UPDATE THE board
@@ -70,7 +78,7 @@ router.put("/:board_id", function (req, res) {
   const board = Board.findById(req.params._id, function (err, user) {
     if (err) return res.status(500).json({ error: "database failure" });
     if (!board) return res.status(404).json({ error: "board not found" });
-
+    if (req.body.title) board.contents = req.body.title;
     if (req.body.contents) board.contents = req.body.contents;
     board.created_date = getCurrentTime();
     if (req.body.modified_date) board.modified_date = req.body.modified_date;
@@ -86,14 +94,9 @@ router.put("/:board_id", function (req, res) {
 
 // DELETE USER
 router.delete("/:board_id", function (req, res) {
-  User.remove({ _id: req.params._id }, function (err, output) {
-    if (err) return res.status(500).json({ error: "database failure" });
-    /* ( SINCE DELETE OPERATION IS IDEMPOTENT, NO NEED TO SPECIFY )
-      if(!output.result.n) return res.status(404).json({ error: "book not found" });
-      res.json({ message: "book deleted" });
-      */
-    res.status(204).end();
-  });
+  User.deleteOne({ _id: new mongoose.Types.ObjectId(req.params._id) }).then(
+    res.json({ delete: "success" }),
+  );
 });
 
 module.exports = router;
