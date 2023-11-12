@@ -1,0 +1,14 @@
+.table_blue01 { border-collapse:collapse; clear:both;  overflow:hidden; border-top:2px solid #5a88c6; margin:0px 0 20px 0;}
+.table_blue01 thead th { border:1px solid #d9d9d9; text-align:center;   padding:13px 10px;  background:#e3ecf8; color:#222; font-weight:600; font-size:19px;}
+.table_blue01 tbody th { border:1px solid #d9d9d9; text-align:center;   padding:10px;  background:#f1f1f1; color:#222; font-weight:600; font-size:18px;}
+.table_blue01 tbody .col01 {background:#f9e2f6;}
+.table_blue01 tbody .col02 {background:#fff1db;}
+.table_blue01 tbody .col03 {background:#fff9c2;}
+.table_blue01 tbody .col04 {background:#bdf6f0;}
+.table_blue01 tbody .col05 {background:#c8faca;}
+.table_blue01 tbody .col06 {background:#f2ecfb;}
+.table_blue01 td { border:1px solid #d9d9d9; text-align:center;  padding:7px;  background:#fff; font-size:18px;}
+.table_blue01 .line01 {border-bottom:2px solid#bbb;}
+.table_blue01 td.line_left { text-align:left; padding-left:10px;}
+.table_blue01 span  { color:#ff4800; }
+.table_blue01 b  { color:#ff4800; }
