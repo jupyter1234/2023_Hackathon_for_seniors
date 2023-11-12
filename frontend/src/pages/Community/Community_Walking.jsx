@@ -1,8 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Community_Board(props) {
+  const [boardList, setBoardList] = useState([]);
+
+  const badukList = async () => {
+    const res = await axios.get("https://port-0-for-seniors-service-7lk2blotylb1l.sel5.cloudtype.app/board/category/baduk");
+    return res.data;
+  }
+  
+  useEffect(() => {
+    async function fetchData() {
+      const res = await badukList();
+      setBoardList(res);
+    }
+  
+    fetchData();
+  }, [])
   const navigate = useNavigate();
   return (
     <BoardContainer>
@@ -21,50 +37,19 @@ export default function Community_Board(props) {
       <hr />
 
       <div style={{ overflowY: "scroll", height: "400px", border: "1px solid #ccc", padding: "10px" }}>
-        <BoardItem
-          to="/board/walking"
-          imgSrc="/img/park.jpg"
-          altText="공원사진"
-          title="매주 월요일마다 산책..."
-          content="쉼터공원에서 아침 9시에 산책 같이..."
-          writer="이봉주"
-        />
-        <hr />
-        <BoardItem
-          to="/board/walking"
-          imgSrc="/img/park.jpg"
-          altText="공원사진"
-          title="매주 월요일마다 산책..."
-          content="쉼터공원에서 아침 9시에 산책 같이..."
-          writer="김봉주"
-        />
-        <hr />
-        <BoardItem
-          to="/board/walking"
-          imgSrc="/img/park.jpg"
-          altText="공원사진"
-          title="매주 목요일마다 산책..."
-          content="쉼터공원에서 아침 9시에 산책 같이..."
-          writer="박봉주"
-        />
-        <hr />
-        <BoardItem
-          to="/board/walking"
-          imgSrc="/img/park.jpg"
-          altText="공원사진"
-          title="매주 월요일마다 산책..."
-          content="쉼터공원에서 아침 9시에 산책 같이..."
-          writer="최봉주"
-        />
-        <hr />
-        <BoardItem
-          to="/board/walking"
-          imgSrc="/img/park.jpg"
-          altText="공원사진"
-          title="매주 금요일마다 산책..."
-          content="쉼터공원에서 아침 9시에 산책 같이..."
-          writer="이세돌"
-        />
+        {boardList.map((board, idx) => (
+            <div key={idx}>
+              <BoardItem
+                to="/board/badook"
+                imgSrc="/img/park.jpg"
+                altText="공원사진"
+                title="매주 월요일마다 바둑..."
+                content="쉼터공원에서 아침 9시에 같이..."
+                writer={board.user_id.nickname}
+              />
+              <hr />
+            </div>
+        ))}
       </div>
     </BoardContainer>
   );

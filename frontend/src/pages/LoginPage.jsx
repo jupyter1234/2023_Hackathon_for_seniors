@@ -26,8 +26,7 @@ export default function LoginPage() {
   }
   async function onSubmit(event) {
     event.preventDefault();
-    console.log(user_ID, password);
-  
+    
     try {
       const res = await axios.post(`https://port-0-for-seniors-service-7lk2blotylb1l.sel5.cloudtype.app/user/login`, {
         user_ID: user_ID,
@@ -35,6 +34,7 @@ export default function LoginPage() {
       });
       setUserInfo(res.data);
       setIsLogin(true);
+      console.log(res.data);
       navigate('/');
     } catch (error) {
       console.error(error.response.data); // Log the error response data
