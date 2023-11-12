@@ -15,7 +15,7 @@ router.post('/login', async (req,res,next) => {
             return res.status(400).send("Auth failed, ID not found");
         }
         if (user.password == req.body.password) {
-            return res.send({"user_id":user._id}) 
+            return res.json({"user_id":user._id}) 
         }   else {
             return res.status(400).send("Wrong Password");
         }
