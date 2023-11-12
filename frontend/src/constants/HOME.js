@@ -12,8 +12,8 @@ const HOMEITEMS = [
     url_path: '/lectures',
   },
   {
-    title: '내가 쓴 글',
-    url_path: '/myboard',
+    title: '주위 친구들',
+    url_path: '/mapcluster',
   },
 ];
 

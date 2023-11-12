@@ -15,6 +15,8 @@ import Community_Gateball from "./pages/Community/Community_Gateball"
 import Community_Etc from "./pages/Community/Community_Etc"
 import Board from "./pages/Community/Board"
 
+import MapCluster from "./pages/MapCluster"
+
 import { Routes, Route, Navigate } from "react-router-dom"
 import { useRecoilValue } from "recoil"
 import { IsLogin } from "./store/Info"
@@ -48,6 +50,8 @@ export default function App() {
         {/* ------------------------------------------- */}
         <Route path="/login" element={<LoginPage></LoginPage>} />
         <Route path="/signup" element={<SignUpPage></SignUpPage>} />
+        {/* Map cluster */}
+        <Route path="/mapcluster" element={!authenticated ? <Navigate to="/login" replace /> : <MapCluster></MapCluster>} />
       </Routes>
     </>
   )
