@@ -1,8 +1,26 @@
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 
 export default function Community_Board(props) {
+  const [boardList, setBoardList] = useState([]);
+
+  const badukList = async () => {
+    const res = await axios.get("https://port-0-for-seniors-service-7lk2blotylb1l.sel5.cloudtype.app/board/category/gateball");
+    return res.data;
+  }
+  
+  useEffect(() => {
+    async function fetchData() {
+      const res = await badukList();
+      setBoardList(res);
+    }
+  
+    fetchData();
+  }, [])
+
   const navigate = useNavigate();
   return (
     <BoardContainer>
@@ -21,50 +39,19 @@ export default function Community_Board(props) {
       <hr />
 
       <div style={{ overflowY: "scroll", height: "400px", border: "1px solid #ccc", padding: "10px" }}>
-        <BoardItem
-          to="/board/gateball"
-          imgSrc="/img/park.jpg"
-          altText="공원사진"
-          title="매주 월요일마다 게이트볼..."
-          content="쉼터공원에서 아침 9시에 게이트볼 같이..."
-          writer="홍길동"
-        />
-        <hr />
-        <BoardItem
-          to="/board/gateball"
-          imgSrc="/img/park.jpg"
-          altText="공원사진"
-          title="매주 월요일마다 게이트볼..."
-          content="쉼터공원에서 아침 9시에 게이트볼 같이..."
-          writer="김길동"
-        />
-        <hr />
-        <BoardItem
-          to="/board/gateball"
-          imgSrc="/img/park.jpg"
-          altText="공원사진"
-          title="매주 목요일마다 게이트볼..."
-          content="쉼터공원에서 아침 9시에 게이트볼 같이..."
-          writer="이길동"
-        />
-        <hr />
-        <BoardItem
-          to="/board/gateball"
-          imgSrc="/img/park.jpg"
-          altText="공원사진"
-          title="매주 월요일마다 게이트볼..."
-          content="쉼터공원에서 아침 9시에 게이트볼 같이..."
-          writer="박길동"
-        />
-        <hr />
-        <BoardItem
-          to="/board/gateball"
-          imgSrc="/img/park.jpg"
-          altText="공원사진"
-          title="매주 금요일마다 게이트볼..."
-          content="쉼터공원에서 아침 9시에 게이트볼 같이..."
-          writer="최길동"
-        />
+      {boardList.map((board, idx) => (
+          <div key={idx}>
+            <BoardItem
+              to="/board"
+              imgSrc="/img/park.jpg"
+              altText="공원사진"
+              title="매주 월요일마다 게이트볼 같이..."
+              content="쉼터공원에서 아침 9시에 같이..."
+              writer={board.user_id.nickname}
+            />
+            <hr />
+          </div>
+        ))}
       </div>
     </BoardContainer>
   );
