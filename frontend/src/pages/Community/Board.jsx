@@ -1,5 +1,6 @@
 import { FaUser } from 'react-icons/fa';
 import styled from 'styled-components';
+import BackButton from '../../components/BackButton';
 
 export default function Board({ activeID, activeCategory }) {
   const samplePost = {
@@ -40,27 +41,30 @@ export default function Board({ activeID, activeCategory }) {
   };
 
   return (
-    <PostContainer>
-      <Title>{samplePost.title}</Title>
-      <Content>{samplePost.contents}</Content>
-      <UserInfo>
-        <UserIcon />
-        작성자: {samplePost.user_id.nickname}
-      </UserInfo>
-      <UserInfo>작성일: {samplePost.created_date}</UserInfo>
+    <div>
+      <PostContainer>
+        <Title>{samplePost.title}</Title>
+        <Content>{samplePost.contents}</Content>
+        <UserInfo>
+          <UserIcon />
+          작성자: {samplePost.user_id.nickname}
+        </UserInfo>
+        <UserInfo>작성일: {samplePost.created_date}</UserInfo>
 
-      <h3>댓글</h3>
-      {samplePost.comments.map(comment => (
-        <CommentContainer key={comment._id}>
-          <CommentContent>{comment.content}</CommentContent>
-          <UserInfo>
-            <UserIcon />
-            작성자: {comment.user_id.nickname}
-          </UserInfo>
-          <UserInfo>작성일: {comment.created_date}</UserInfo>
-        </CommentContainer>
-      ))}
-    </PostContainer>
+        <h3>댓글</h3>
+        {samplePost.comments.map(comment => (
+          <CommentContainer key={comment._id}>
+            <CommentContent>{comment.content}</CommentContent>
+            <UserInfo>
+              <UserIcon />
+              작성자: {comment.user_id.nickname}
+            </UserInfo>
+            <UserInfo>작성일: {comment.created_date}</UserInfo>
+          </CommentContainer>
+        ))}
+      </PostContainer>
+      <BackButton/>
+    </div>
   );
 }
 
