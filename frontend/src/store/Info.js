@@ -17,7 +17,7 @@ export const IsLogin = atom({
 
 export const ProgramLocation = atom({
   key: 'ProgramLocation',
-  default: '',
+  default: '북구 복지관',
   effects_UNSTABLE: [persistAtom],
 });
 

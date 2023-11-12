@@ -3,13 +3,12 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-import { useRecoilState, useSetRecoilState } from "recoil"
+import { useSetRecoilState } from "recoil"
 import { UserInfo, IsLogin } from "../store/Info"
 
-export default function Navbar() {
-	const [isLogin, setIsLogin] = useRecoilState(IsLogin);
+export default function Navbar({authenticated}) {
+	const setIsLogin = useSetRecoilState(IsLogin);
 	const setUserInfo = useSetRecoilState(UserInfo);
-  const authenticated = isLogin;
 	const navRef = useRef();
 	
 	const showNavbar = () => {
