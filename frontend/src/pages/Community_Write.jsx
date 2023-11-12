@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { useState } from "react";
+import BackButton from "../components/BackButton";
 
 export default function Community_Write() {
   const [title, setTitle] = useState('');
@@ -37,13 +38,15 @@ export default function Community_Write() {
       <Link to="/community/badook">
         <SubmitButton onClick={handleSubmit}>제출</SubmitButton>
       </Link>
+      <br />
+      <BackButton/>
     </AllContainer>
   );
 }
 
 const AllContainer = styled.div`
     width: 100%;
-    height: 80vh;
+    height: 95vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;

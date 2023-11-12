@@ -4,6 +4,7 @@ import ProgramCard from "../components/ProgramCard";
 import PROGRAMS from "../constants/LECTURE";
 import styled from "styled-components";
 
+
 export default function ProgramPage() { 
   const location = useRecoilValue(ProgramLocation);
 

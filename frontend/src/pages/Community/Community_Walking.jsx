@@ -72,7 +72,6 @@ const Header = styled.div`
   margin: 0 auto;
   width: 100%;
   font-size: 5vw;
-
   h1 {
     margin: 0;
   }
@@ -81,6 +80,7 @@ const Header = styled.div`
 const BoardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  height: 95vh;
   margin-top: 20px;
 `;
 

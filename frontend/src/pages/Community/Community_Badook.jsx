@@ -36,7 +36,6 @@ export default function Community_Board(props) {
         }}>글쓰기</button>
       </CategorySection>
       <hr />
-
       <div style={{ overflowY: "scroll", height: "400px", border: "1px solid #ccc", padding: "10px" }}>
         {boardList.map((board, idx) => (
           <div key={idx}>
@@ -82,6 +81,7 @@ const Header = styled.div`
 
 const BoardContainer = styled.div`
   display: flex;
+  height: 95vh;
   flex-direction: column;
   margin-top: 20px;
 `;
@@ -89,7 +89,7 @@ const BoardContainer = styled.div`
 const CategorySection = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+ align-items: center;
 
   p {
     font-weight: bold;

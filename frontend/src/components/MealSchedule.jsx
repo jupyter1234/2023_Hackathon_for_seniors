@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import BackButton from './BackButton';
 
 export default function MealSchedule() {
   return (
@@ -67,6 +68,7 @@ export default function MealSchedule() {
           <p>※ 급식상황에 따라 조기마감 될수 있습니다.</p>
         </MobileScrollWrapper>
       </div>
+      <BackButton/>
     </StyledMealSchedule>
   );
 }

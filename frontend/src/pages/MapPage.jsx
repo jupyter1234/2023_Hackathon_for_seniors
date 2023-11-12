@@ -1,3 +1,4 @@
+import BackButton from "../components/BackButton";
 import KakaoMap from "../components/KakaoMap";
 import styled from "styled-components";
 
@@ -8,6 +9,7 @@ export default function MapPage() {
       <MapContainer>
         <KakaoMap/>
       </MapContainer>
+      <BackButton/>
     </Container>
   );
 }

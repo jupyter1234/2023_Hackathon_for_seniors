@@ -1,5 +1,6 @@
 import "../components/LectureSchedule.css";
 import styled from 'styled-components';
+import BackButton from "./BackButton";
 
 export default function LectureSchedule() {
   return (
@@ -269,6 +270,7 @@ export default function LectureSchedule() {
       <div className="tablewrapover" id="ovdiv_01" style={{ display: "none" }}>
         &nbsp;
       </div>
+      <BackButton/>
     </div>
   );
 }

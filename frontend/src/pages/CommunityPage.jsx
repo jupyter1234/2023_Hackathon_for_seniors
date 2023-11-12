@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import BackButton from '../components/BackButton';
 
 function Title(props) {
   return (
@@ -28,26 +29,33 @@ CommunityItem.propTypes = {
 
 function CommunityItem({ to, imgSrc, altText, content }) {
   return (
-    <Card>
-      <Link to={to} style={{ textDecoration: 'none' }}>
-        <img className="imgSize" src={imgSrc} alt={altText} />
-        <Content>{content}</Content>
-      </Link>
-    </Card>
+    <div>
+      <Card>
+        <Link to={to} style={{ textDecoration: 'none' }}>
+          <img className="imgSize" src={imgSrc} alt={altText} />
+          <Content>{content}</Content>
+        </Link>
+      </Card>
+    </div>
   );
 }
 
 export default function CommunityPage() {
+
   return (
-    <CommunityContainer>
-      <Title>주변 사람들과 함께 <br /> 하고 싶은 취미 생활을 <br />골라보세요</Title>
-      <CardContainer>
-        <CommunityItem to={{ pathname: '/community/badook', state: { paramName: '바둑' } }} imgSrc="/img/go.png" altText="바둑" content="바둑" />
-        <CommunityItem to={{ pathname: '/community/walking', state: '산책' }} imgSrc="/img/iris.png" altText="산책" content="산책" />
-        <CommunityItem to={{ pathname: '/community/gateball', state: '게이트볼' }} imgSrc="/img/gateball.png" altText="게이트볼" content="게이트볼" />
-        <CommunityItem to={{ pathname: '/community/etc', state: '기타활동' }} imgSrc="/img/people.png" altText="기타활동" content="기타활동" />
-      </CardContainer>
-    </CommunityContainer>
+    <div>
+      <CommunityContainer>
+        <Title>주변 사람들과 함께 <br /> 하고 싶은 취미 생활을 <br />골라보세요</Title>
+        <CardContainer>
+          <CommunityItem to={{ pathname: '/community/badook', state: { paramName: '바둑' } }} imgSrc="/img/go.png" altText="바둑" content="바둑" />
+          <CommunityItem to={{ pathname: '/community/walking', state: '산책' }} imgSrc="/img/iris.png" altText="산책" content="산책" />
+          <CommunityItem to={{ pathname: '/community/gateball', state: '게이트볼' }} imgSrc="/img/gateball.png" altText="게이트볼" content="게이트볼" />
+          <CommunityItem to={{ pathname: '/community/etc', state: '기타활동' }} imgSrc="/img/people.png" altText="기타활동" content="기타활동" />
+        </CardContainer>
+        <BackButton/>
+      </CommunityContainer>
+      
+    </div>
   );
 }
 
@@ -59,6 +67,7 @@ const CommunityContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 `;
 
 const CardContainer = styled.div`
