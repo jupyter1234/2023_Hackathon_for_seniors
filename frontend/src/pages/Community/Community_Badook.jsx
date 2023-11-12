@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import BackButton from "../../components/BackButton";
 
 export default function Community_Board(props) {
   const [boardList, setBoardList] = useState([]);
@@ -52,6 +53,7 @@ export default function Community_Board(props) {
           </div>
         ))}
       </div>
+      <BackButton/>
     </BoardContainer>
   );
 }
