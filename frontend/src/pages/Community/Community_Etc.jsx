@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import BackButton from 'c:/Users/qldkr/2023_Hackathon_for_seniors/frontend/src/components/BackButton.jsx';
+import BackButton from '../../components/BackButton';
 
 export default function Community_Board(props) {
   const navigate = useNavigate();
