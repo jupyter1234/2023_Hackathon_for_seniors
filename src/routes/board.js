@@ -34,7 +34,6 @@ router.get("/category/:category", async function (req, res) {
   const board = await Board.find({
     category: req.params.category,
   })
-    .select("title, user_id, contents, created_date category")
     .populate({ path: "user_id", select: "nickname" })
     .then(console.log("sent"));
   res.json(board);
@@ -70,7 +69,7 @@ router.post("/", async function (req, res) {
 
 // UPDATE THE board
 router.put("/:board_id", function (req, res) {
-  const board = Board.findById(req.params._id, function (err, user) {
+  const board = Board.findById(req.params.board_id, function (err, user) {
     if (err) return res.status(500).json({ error: "database failure" });
     if (!board) return res.status(404).json({ error: "board not found" });
     if (req.body.title) board.contents = req.body.title;
@@ -89,9 +88,9 @@ router.put("/:board_id", function (req, res) {
 
 // DELETE USER
 router.delete("/:board_id", function (req, res) {
-  User.deleteOne({ _id: new mongoose.Types.ObjectId(req.params._id) }).then(
-    res.json({ delete: "success" }),
-  );
+  Board.deleteOne({
+    _id: new mongoose.Types.ObjectId(req.params.board_id),
+  }).then(res.json({ delete: "success" }));
 });
 
 module.exports = router;
