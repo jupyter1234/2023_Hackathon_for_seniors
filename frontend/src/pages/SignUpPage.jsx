@@ -1,17 +1,19 @@
 import styled from 'styled-components';
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpPage() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
-    nickName: '',
-    bdate: '',
-    gender: '',
-    phonenum: '',
-    userId: '',
-    pass: '',
-  });
+    name: "",
+    nickname: "",
+    bdate: "12/31/1888",
+    gender: "",
+    phone_number: "010-1111-1123",
+    user_ID: "",
+    password: ""
+});
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -22,10 +24,10 @@ export default function SignUpPage() {
     e.preventDefault();
     console.log(formData);
     try {
-      const response = await axios.post("http://localhost:3001/register", {
-        body: formData,
-      });
+      const response = await axios.post("https://port-0-for-seniors-service-7lk2blotylb1l.sel5.cloudtype.app/user/register", formData);
+      console.log(response);
       console.log("register success", response);
+      navigate("/login");
     } catch (error) {
       console.error("Error during registration:", error);
     }
@@ -47,24 +49,24 @@ export default function SignUpPage() {
         <FormGroup>
           <FormInput
             placeholder='id를 입력하세요.'
-            name="userId"
+            name="user_ID"
             onChange={handleChange}
             type="text"
-            value={formData.userId}
+            value={formData.user_ID}
           />
         </FormGroup>
         <FormGroup>
           <FormInput
             placeholder='닉네임을 입력하세요.'
-            name="nickName"
+            name="nickname"
             onChange={handleChange}
             type="text"
-            value={formData.nickName}
+            value={formData.nickname}
           />
         </FormGroup>
         <FormGroup>
           <FormInput
-            placeholder='생년월일을 입력하세요. 19990101'
+            placeholder='생년월일을 입력하세요. 12/31/1888'
             name="bdate"
             onChange={handleChange}
             type="text"
@@ -86,19 +88,19 @@ export default function SignUpPage() {
             name="phonenum"
             onChange={handleChange}
             type="text"
-            value={formData.phonenum}
+            value={formData.phone_number}
           />
         </FormGroup>
         <FormGroup>
           <FormInput
             placeholder='비밀번호를 입력하세요.'
-            name="pass"
+            name="password"
             onChange={handleChange}
             type="password"
-            value={formData.pass}
+            value={formData.password}
           />
         </FormGroup>
-        <SubmitButton type="submit">Sign Up</SubmitButton>
+        <SubmitButton type="submit" >Sign Up</SubmitButton>
       </SignUpForm>
     </SignUpWrapper>
   );

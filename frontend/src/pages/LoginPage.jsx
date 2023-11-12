@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { UserInfo, IsLogin } from "../store/Info";
 import styled from 'styled-components';
-//import {axios} from 'axios';
+import axios from 'axios';
 
 export default function LoginPage() {
   const [user_ID, setUserID] = useState('');
   const [password, setPasssword] = useState('');
+  const setUserInfo = useSetRecoilState(UserInfo);
+  const setIsLogin = useSetRecoilState(IsLogin);
+  const navigate = useNavigate();
 
   const onChangeID = (e) => {
     const {
@@ -19,14 +24,21 @@ export default function LoginPage() {
     } = e;
     setPasssword(value);
   }
-  async function onSubmit() {
-    console.log(user_ID, password);
-    // const res = await axios.post(`http://localhost:3001/user/login`, {
-    //   body: {
-    //     user_ID: user_ID,
-    //     password: password
-    //   },
-    // }).then(console.log(res.body));
+  async function onSubmit(event) {
+    event.preventDefault();
+    
+    try {
+      const res = await axios.post(`https://port-0-for-seniors-service-7lk2blotylb1l.sel5.cloudtype.app/user/login`, {
+        user_ID: user_ID,
+        password: password
+      });
+      setUserInfo(res.data);
+      setIsLogin(true);
+      console.log(res.data);
+      navigate('/');
+    } catch (error) {
+      console.error(error.response.data); // Log the error response data
+    }
   }
   return (
     <LoginWrapper>

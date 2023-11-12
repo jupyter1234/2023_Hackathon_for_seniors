@@ -31,13 +31,9 @@ export default function Community_Write() {
         <input placeholder="제목을 입력하세요" type="text" value={title} onChange={handleTitleChange} />
       </ContentWrapper>
       <hr />
-      <StyledTable>
-        <td>
-          <ContentWrapper>
-            <textarea placeholder="내용을 입력하세요" value={content} onChange={handleContentChange} />
-          </ContentWrapper>
-        </td>
-      </StyledTable>
+      <ContentWrapper>
+        <textarea placeholder="내용을 입력하세요" value={content} onChange={handleContentChange} />
+      </ContentWrapper>
       <br />
       <Link to="/community/badook">
         <SubmitButton onClick={handleSubmit}>제출</SubmitButton>
@@ -104,8 +100,4 @@ const SubmitButton = styled.button`
     cursor: pointer;
     font-size: 30px;
     font-weight: bold;
-`;
-
-const StyledTable = styled.table`
-    height: 500px;
 `;
