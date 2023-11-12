@@ -12,7 +12,6 @@ const UserSchema = mongoose.Schema(
     nickname: {
       type: String,
       required: true,
-      unique: true,
     },
     bdate: {
       type: mongoose.Schema.Types.Date,
