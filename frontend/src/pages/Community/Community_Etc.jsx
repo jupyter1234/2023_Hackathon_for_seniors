@@ -31,7 +31,7 @@ export default function Community_Board(props) {
         />
         <hr />
         <BoardItem
-          to="/board/etc"
+          to="/board"
           imgSrc="/img/park.jpg"
           altText="공원사진"
           title="매주 월요일마다 고스톱..."
@@ -40,7 +40,7 @@ export default function Community_Board(props) {
         />
         <hr />
         <BoardItem
-          to="/board/etc"
+          to="/board"
           imgSrc="/img/park.jpg"
           altText="공원사진"
           title="매주 목요일마다 춤연습..."
@@ -49,7 +49,7 @@ export default function Community_Board(props) {
         />
         <hr />
         <BoardItem
-          to="/board/etc"
+          to="/board"
           imgSrc="/img/park.jpg"
           altText="공원사진"
           title="매주 월요일마다 수다모임..."
@@ -58,7 +58,7 @@ export default function Community_Board(props) {
         />
         <hr />
         <BoardItem
-          to="/board/etc"
+          to="/board"
           imgSrc="/img/park.jpg"
           altText="공원사진"
           title="매주 금요일마다 수영..."

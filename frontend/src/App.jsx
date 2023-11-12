@@ -13,10 +13,7 @@ import Community_Badook from "./pages/Community/Community_Badook"
 import Community_Walking from "./pages/Community/Community_Walking"
 import Community_Gateball from "./pages/Community/Community_Gateball"
 import Community_Etc from "./pages/Community/Community_Etc"
-import Board_Badook from "./pages/Board/Community_Badook"
-import Board_Walking from "./pages/Board/Community_Walking"
-import Board_Gateball from "./pages/Board/Community_Gateball"
-import Board_Etc from "./pages/Board/Community_Etc"
+import Board from "./pages/Community/Board"
 
 import { Routes, Route, Navigate } from "react-router-dom"
 import { useRecoilValue } from "recoil"
@@ -47,10 +44,7 @@ export default function App() {
         <Route path="/community/gateball" element={!authenticated ? <Navigate to="/login" replace /> : <Community_Gateball></Community_Gateball>}/>
         <Route path="/community/etc" element={!authenticated ? <Navigate to="/login" replace /> : <Community_Etc></Community_Etc>}/>
         {/* ------------------------------------------- */}
-        <Route path="/board/badook" element={!authenticated ? <Navigate to="/login" replace /> : <Board_Badook></Board_Badook>}/>
-        <Route path="/board/walking" element={!authenticated ? <Navigate to="/login" replace /> : <Board_Walking></Board_Walking>}/>
-        <Route path="/board/gateball" element={!authenticated ? <Navigate to="/login" replace /> : <Board_Gateball></Board_Gateball>}/>
-        <Route path="/board/etc" element={!authenticated ? <Navigate to="/login" replace /> : <Board_Etc></Board_Etc>}/>
+        <Route path="/board" element={!authenticated ? <Navigate to="/login" replace /> : <Board></Board>}/>
         {/* ------------------------------------------- */}
         <Route path="/login" element={<LoginPage></LoginPage>} />
         <Route path="/signup" element={<SignUpPage></SignUpPage>} />

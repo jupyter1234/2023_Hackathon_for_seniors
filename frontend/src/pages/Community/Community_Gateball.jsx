@@ -42,11 +42,11 @@ export default function Community_Board(props) {
       {boardList.map((board, idx) => (
           <div key={idx}>
             <BoardItem
-              to="/board/badook"
+              to="/board"
               imgSrc="/img/park.jpg"
               altText="공원사진"
-              title="매주 월요일마다 바둑..."
-              content="쉼터공원에서 아침 9시에 바둑 같이..."
+              title="매주 월요일마다 게이트볼 같이..."
+              content="쉼터공원에서 아침 9시에 같이..."
               writer={board.user_id.nickname}
             />
             <hr />
