@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import BackButton from 'c:/Users/qldkr/2023_Hackathon_for_seniors/frontend/src/components/BackButton.jsx';
 
 export default function Community_Board(props) {
   const navigate = useNavigate();
@@ -20,7 +21,25 @@ export default function Community_Board(props) {
       </CategorySection>
       <hr />
 
-      <div style={{ overflowY: "scroll", height: "400px", border: "1px solid #ccc", padding: "10px" }}>
+      <div style={{ overflowY: "scroll", height: "70%", border: "1px solid #ccc", padding: "10px" }}>
+        <BoardItem
+          to="/board/badook"
+          imgSrc="/img/park.jpg"
+          altText="공원사진"
+          title="매주 월요일마다 바둑..."
+          content="쉼터공원에서 아침 9시에 바둑 같이..."
+          writer="이세돌"
+        />
+        <hr />
+        <BoardItem
+          to="/board/badook"
+          imgSrc="/img/park.jpg"
+          altText="공원사진"
+          title="매주 월요일마다 바둑..."
+          content="쉼터공원에서 아침 9시에 바둑 같이..."
+          writer="이세돌"
+        />
+        <hr />
         <BoardItem
           to="/board/badook"
           imgSrc="/img/park.jpg"
@@ -58,7 +77,9 @@ export default function Community_Board(props) {
         />
         <hr />
         {/* Add more BoardItems as needed */}
+        
       </div>
+      <BackButton/>
     </BoardContainer>
   );
 }
@@ -88,6 +109,7 @@ const Header = styled.div`
 
 const BoardContainer = styled.div`
   display: flex;
+  height: 95vh;
   flex-direction: column;
   margin-top: 20px;
 `;
@@ -95,7 +117,7 @@ const BoardContainer = styled.div`
 const CategorySection = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+ align-items: center;
 
   p {
     font-weight: bold;

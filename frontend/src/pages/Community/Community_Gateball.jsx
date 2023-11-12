@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import BackButton from 'c:/Users/qldkr/2023_Hackathon_for_seniors/frontend/src/components/BackButton.jsx';
 
 export default function Community_Board(props) {
   const navigate = useNavigate();
@@ -20,12 +21,12 @@ export default function Community_Board(props) {
       </CategorySection>
       <hr />
 
-      <div style={{ overflowY: "scroll", height: "400px", border: "1px solid #ccc", padding: "10px" }}>
+      <div style={{ overflowY: "scroll", height: "70%", border: "1px solid #ccc", padding: "10px" }}>
         <BoardItem
           to="/board/gateball"
           imgSrc="/img/park.jpg"
           altText="공원사진"
-          title="매주 월요일마다 게이트볼..."
+          title="게이트볼 치실 분~^^"
           content="쉼터공원에서 아침 9시에 게이트볼 같이..."
           writer="홍길동"
         />
@@ -34,7 +35,16 @@ export default function Community_Board(props) {
           to="/board/gateball"
           imgSrc="/img/park.jpg"
           altText="공원사진"
-          title="매주 월요일마다 게이트볼..."
+          title="게이트볼 치실 분~^^"
+          content="쉼터공원에서 아침 9시에 게이트볼 같이..."
+          writer="홍길동"
+        />
+        <hr />
+        <BoardItem
+          to="/board/gateball"
+          imgSrc="/img/park.jpg"
+          altText="공원사진"
+          title="게이트볼 치실 분~^^"
           content="쉼터공원에서 아침 9시에 게이트볼 같이..."
           writer="김길동"
         />
@@ -43,7 +53,7 @@ export default function Community_Board(props) {
           to="/board/gateball"
           imgSrc="/img/park.jpg"
           altText="공원사진"
-          title="매주 목요일마다 게이트볼..."
+          title="게이트볼 치실 분~^^"
           content="쉼터공원에서 아침 9시에 게이트볼 같이..."
           writer="이길동"
         />
@@ -52,7 +62,7 @@ export default function Community_Board(props) {
           to="/board/gateball"
           imgSrc="/img/park.jpg"
           altText="공원사진"
-          title="매주 월요일마다 게이트볼..."
+          title="게이트볼 치실 분~^^"
           content="쉼터공원에서 아침 9시에 게이트볼 같이..."
           writer="박길동"
         />
@@ -61,11 +71,12 @@ export default function Community_Board(props) {
           to="/board/gateball"
           imgSrc="/img/park.jpg"
           altText="공원사진"
-          title="매주 금요일마다 게이트볼..."
+          title="게이트볼 치실 분~^^"
           content="쉼터공원에서 아침 9시에 게이트볼 같이..."
           writer="최길동"
         />
       </div>
+      <BackButton/>
     </BoardContainer>
   );
 }
@@ -96,6 +107,7 @@ const Header = styled.div`
 const BoardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  height:95vh;
   margin-top: 20px;
 `;
 
