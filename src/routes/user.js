@@ -11,13 +11,13 @@ const User = require("../models/User");
 router.post("/login", async (req, res, next) => {
   try {
     const user = await User.findOne({ user_ID: req.body.user_ID });
-    //진짜 유저 없음
+    //유저 없음
     if (!user) {
       console.log("유저 정보 없음");
       return res.status(400).send("Auth failed, ID not found");
     }
     if (user.password == req.body.password) {
-      return res.json({ user_id: user._id });
+      return res.send({ user_id: user._id });
     } else {
       return res.status(400).send("Wrong Password");
     }

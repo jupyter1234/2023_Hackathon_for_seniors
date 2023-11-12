@@ -21,7 +21,10 @@ app.use(cors());
 app.use(express.json());
 
 // DB 연결
-mongoose.connect(process.env.MONGO_URI, { dbName: "Hackerton2023_Back" });
+mongoose.connect(
+  "mongodb+srv://adorableco:Fgg1mkClL6J0dsaW@hackerton2023.kcsaars.mongodb.net/?retryWrites=true&w=majority",
+  { dbName: "Hackerton2023_Back" },
+);
 
 // 커넥션 관리 이벤트 :: 연결 확인 log
 mongoose.connection.on("connected", () => {
@@ -50,22 +53,10 @@ app.get("/welfare", async function (req, res) {
 //   console.log("더미데이터 생성 성공")
 // )
 
-// 프론트 연결 테스트용 !!!
-const boardRouter = require("./models/Board");
-app.get("/", async (req, res) => {
-  const board = await boardRouter
-    .find({
-      category: req.params.category,
-    })
-    .select("title, user_id, contents, created_date category")
-    .populate({ path: "user_id", select: "nickname" })
-    .then(console.log("sent"));
-  res.json(board);
-});
-
 // 라우터 이동
 
 app.use("/user", require("./routes/user"));
-app.use("/board", require("./routes/board"));
+app.use("/board", board);
 app.use("/comments", comment);
-app.listen(process.env.PORT);
+app.use("/ocr", require("./routes/ocr"));
+app.listen(3001);

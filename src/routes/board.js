@@ -30,7 +30,7 @@ router.get("/", async function (req, res) {
 });
 
 // GET BOARD BY Category
-router.get("/:category", async function (req, res) {
+router.get("/category/:category", async function (req, res) {
   const board = await Board.find({
     category: req.params.category,
   })
