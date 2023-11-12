@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import "./font.css";
 
 import { useSetRecoilState } from "recoil"
 import { UserInfo, IsLogin } from "../store/Info"
@@ -25,7 +26,7 @@ export default function Navbar({authenticated}) {
 
 	return (
 		<header>
-			<h2>어데고</h2>
+			<div style={{fontFamily: 'Jeju Hallasan', fontSize:'40px'}}>어데고</div>
 			<nav ref={navRef}>
 				<Link to="/" onClick={showNavbar}>홈</Link>
 				<Link to="/map" onClick={showNavbar}>지도</Link>
