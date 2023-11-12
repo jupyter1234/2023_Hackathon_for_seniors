@@ -8,6 +8,7 @@ import RegisterPage from "./pages/RegisterPage"
 import CommunityPage from "./pages/CommunityPage"
 import LoginPage from "./pages/LoginPage"
 import SignUpPage from "./pages/SignUpPage"
+import Community_Write from "./pages/Community_Write"
 import Community_Badook from "./pages/Community/Community_Badook"
 import Community_Walking from "./pages/Community/Community_Walking"
 import Community_Gateball from "./pages/Community/Community_Gateball"
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="/register" element={<RegisterPage></RegisterPage>} />
         {/* ------------------------------------------- */}
         <Route path="/community" element={<CommunityPage></CommunityPage>} />
+        <Route path="/community/write" element={<Community_Write></Community_Write>} />
         <Route path="/community/badook" element={<Community_Badook></Community_Badook>} />
         <Route path="/community/walking" element={<Community_Walking></Community_Walking>}/>
         <Route path="/community/gateball" element={<Community_Gateball></Community_Gateball>}/>

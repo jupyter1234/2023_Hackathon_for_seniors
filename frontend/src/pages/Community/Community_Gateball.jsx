@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Community_Board(props) {
+  const navigate = useNavigate();
   return (
     <BoardContainer>
       <Header>
@@ -12,7 +14,9 @@ export default function Community_Board(props) {
           <p>카테고리</p>
           <p>게이트볼</p>
         </div>
-        <button>글쓰기</button>
+        <button onClick={() => {
+          navigate("/community/write");
+        }}>글쓰기</button>
       </CategorySection>
       <hr />
 
