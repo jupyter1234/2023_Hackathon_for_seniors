@@ -63,13 +63,8 @@ router.post("/", async function (req, res) {
   board.user_id = req.body.user_id;
   board.category = req.body.category;
 
-  board.save().then((error, savedBoard) => {
-    if (error) {
-      console.error("Error saving board:", error);
-    } else {
-      console.log("Board saved successfully:", savedBoard);
-      // 여기서 savedBoard는 저장된 후의 사용자 객체를 나타냅니다.
-    }
+  board.save().then((savedBoard) => {
+    res.json(savedBoard);
   });
 });
 
