@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
-//import {axios} from 'axios';
+import axios from 'axios';
 
 export default function LoginPage() {
   const [user_ID, setUserID] = useState('');
@@ -19,14 +19,20 @@ export default function LoginPage() {
     } = e;
     setPasssword(value);
   }
-  async function onSubmit() {
+  async function onSubmit(event) {
+    event.preventDefault();
     console.log(user_ID, password);
-    // const res = await axios.post(`http://localhost:3001/user/login`, {
-    //   body: {
-    //     user_ID: user_ID,
-    //     password: password
-    //   },
-    // }).then(console.log(res.body));
+  
+    try {
+      const res = await axios.post(`https://port-0-for-seniors-service-7lk2blotylb1l.sel5.cloudtype.app/user/login`, {
+        user_ID: user_ID,
+        password: password
+      });
+  
+      console.log(res.data); // Access response data, not res.body
+    } catch (error) {
+      console.error(error.response.data); // Log the error response data
+    }
   }
   return (
     <LoginWrapper>
