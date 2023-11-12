@@ -9,7 +9,7 @@ const User = require('../models/User');
 router.post('/login', async (req,res,next) => {
     try{
         const user = await User.findOne({user_ID : req.body.user_ID})
-        //유저 없음
+        //유저 없음!
         if (!user) {
             console.log("유저 정보 없음");
             return res.status(400).send("Auth failed, ID not found");
