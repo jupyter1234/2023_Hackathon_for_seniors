@@ -44,9 +44,10 @@ export default function Community_Board(props) {
                 to="/board"
                 imgSrc="/img/park.jpg"
                 altText="공원사진"
-                title="매주 월요일마다 걷기 같이..."
-                content="쉼터공원에서 아침 9시에 같이..."
+                title={board.title}
+                content={board.contents}
                 writer={board.user_id.nickname}
+                itemID={board._id}
               />
               <hr />
             </div>
