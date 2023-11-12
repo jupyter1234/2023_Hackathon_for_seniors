@@ -9,54 +9,57 @@ const Comment = require("../models/Comment");
 const mongoose = require("mongoose");
 const axios = require("axios");
 const fs = require("fs");
+const request = require("request");
+const { v4: uuidv4 } = require("uuid");
+
 // 라우터 선언
 const router = Router();
 
-function imageToBase64(filePath) {
-  // 이미지 파일을 읽어옴
-  const imageBuffer = fs.readFileSync(filePath);
-
-  // 이미지를 base64로 인코딩
-  const base64Image = imageBuffer.toString("base64");
-
-  return base64Image;
-}
-
 router.get("/:image_path", async (req, res) => {
-  const imagePath = "uploads/" + req.params.image_path;
+  const imagePath = "./uploads/" + req.params.image_path;
+  const imageBuffer = fs.readFileSync(imagePath);
+  const base64String = imageBuffer.toString("base64");
 
-  const base64Data = imageToBase64(imagePath);
-  try {
-    const response = await axios
-      .post(
-        "https://yq0eygnyb9.apigw.ntruss.com/custom/v1/26118/9850178aefa4c1c7c57f795a0214bbf701c3dc46265794d818a76804f866078b/general",
+  const options = {
+    uri: "https://yq0eygnyb9.apigw.ntruss.com/custom/v1/26118/9850178aefa4c1c7c57f795a0214bbf701c3dc46265794d818a76804f866078b/general",
+    method: "POST",
+    json: true, // JSON 형식으로 요청
+    body: {
+      version: "V1",
+      requestId: "string",
+      timestamp: 0,
+      lang: "ko",
+      images: [
         {
-          body: {
-            version: "V2",
-            requestId: "1111",
-            timestamp: 0,
-            lang: "ko",
-            images: [
-              {
-                format: "jpg",
-                url: null,
-                data: base64Data,
-                name: "test_image",
-              },
-            ],
-            enableTableDetection: false,
-          },
-
-          header: {
-            "X-OCR-SECRET": "Z0FUb292Z2lITXRvcGFxd2x5cll0c0NGYVRuUUNJWWU=",
-            "Content-Type": "Application/json",
-          },
+          format: "png",
+          data: base64String,
+          name: "string",
+          templateIds: [0],
         },
-      )
-      .then(res.json({ commit: "success" }));
-  } catch (error) {
-    res.status(500).json({ message: error.message }); // 에러 발생 시 500 Internal Server Error 응답
-  }
+      ],
+      enableTableDetection: false,
+    },
+    headers: {
+      "X-OCR-SECRET": "Z0FUb292Z2lITXRvcGFxd2x5cll0c0NGYVRuUUNJWWU=",
+      "Content-Type": "Application/json",
+    },
+  };
+  request.post(options, function (err, httpResponse, body) {
+    if (err) {
+      res.status(500).json({ message: "Error processing OCR request" });
+    } else {
+      const extractedData = body.images
+        .map((image) => {
+          return image.fields.map((field) => {
+            return {
+              inferText: field.inferText,
+            };
+          });
+        })
+        .flat();
+      res.json({ extractedData });
+    }
+  }); //callback})
 });
 
 module.exports = router;
