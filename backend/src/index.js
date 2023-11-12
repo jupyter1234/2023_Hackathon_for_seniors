@@ -1,12 +1,10 @@
-/** @format */
-
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-
+const multer = require("multer");
 require("dotenv").config();
 const cors = require("cors");
-
+const path = require("path");
 // 라우터 추가
 
 const userRouter = require("./routes/UserRoute");
@@ -27,6 +25,7 @@ mongoose.connect(process.env.MONGO_URI, { dbName: "Hackerton2023_Back" });
 mongoose.connection.on("connected", () => {
   console.log("Successfully connected to MongoDB");
 });
+
 //기관 위치 전부 가져오기
 app.get("/welfare", async function (req, res) {
   try {
@@ -54,9 +53,13 @@ app.get("/", (req, res) => {
   res.send("OK");
 });
 
+app.use(express.static('uploads'));
+app.use(express.static(path.join(__dirname, '../uploads'))); //절대경로 사용
+
 // 라우터 이동
 
 app.use("/user", require("./routes/user"));
 app.use("/board", require("./routes/board"));
 app.use("/comments", comment);
+app.use("/image", require("./routes/image"));
 app.listen(3001);
